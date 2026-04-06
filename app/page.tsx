@@ -96,6 +96,93 @@ function SoftenerIcon() {
   );
 }
 
+function DropCheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-sky-600">
+      <path
+        d="M12 3.8c3.3 3.5 5.2 5.9 5.2 8.6A5.2 5.2 0 1 1 6.8 12.4c0-2.7 1.9-5.1 5.2-8.6Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m9.7 12.3 1.5 1.5 3.2-3.2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ShieldHealthIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-sky-600">
+      <path
+        d="M12 4.5c2.3 1.6 4.6 2.2 6 2.4v4.8c0 3.5-2.3 6.4-6 7.8-3.7-1.4-6-4.3-6-7.8V6.9c1.4-.2 3.7-.8 6-2.4Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 8.5v6M9 11.5h6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function BottleReduceIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-sky-600">
+      <path
+        d="M10 4h4M11 4v2l-2.3 2.6A3 3 0 0 0 8 10.6V17a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-6.4a3 3 0 0 0-.7-2L13 6V4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      <path
+        d="M7 17 17 7"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ApplianceProtectIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-sky-600">
+      <rect
+        x="6"
+        y="4"
+        width="12"
+        height="16"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M9 8h6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 12.5c1.4.8 2.2 1.7 2.2 2.7 0 1-.8 1.9-2.2 2.7-1.4-.8-2.2-1.7-2.2-2.7 0-1 .8-1.9 2.2-2.7Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function AquaSafeLandingPage() {
   const solutions = [
     {
@@ -125,11 +212,39 @@ export default function AquaSafeLandingPage() {
     },
   ];
 
-  const visionPoints = [
-    "Καθαρό και γευστικό νερό κάθε μέρα",
-    "Προστασία της υγείας της οικογένειας",
-    "Μείωση χρήσης εμφιαλωμένου νερού",
-    "Προστασία συσκευών και υδραυλικών εγκαταστάσεων",
+  const benefitPoints = [
+    {
+      text: "Καθαρό και γευστικό νερό σε κάθε καθημερινή χρήση",
+      icon: <DropCheckIcon />,
+    },
+    {
+      text: "Προστασία της υγείας σας και της οικογένειάς σας",
+      icon: <ShieldHealthIcon />,
+    },
+    {
+      text: "Μείωση ανάγκης για εμφιαλωμένο νερό και περιορισμός κόστους",
+      icon: <BottleReduceIcon />,
+    },
+    {
+      text: "Προστασία συσκευών και υδραυλικών εγκαταστάσεων από φθορές",
+      icon: <ApplianceProtectIcon />,
+    },
+    {
+      text: "Απομάκρυνση χλωρίου, βαρέων μετάλλων και ανεπιθύμητων ουσιών",
+      icon: <DropCheckIcon />,
+    },
+    {
+      text: "Σταθερή ποιότητα νερού με σύγχρονη τεχνολογία φιλτραρίσματος",
+      icon: <CentralSupplyIcon />,
+    },
+    {
+      text: "Αναβάθμιση της καθημερινότητας με μεγαλύτερη ασφάλεια και άνεση",
+      icon: <ShieldHealthIcon />,
+    },
+    {
+      text: "Επένδυση με μακροχρόνια αξία για οικιακή και επαγγελματική χρήση",
+      icon: <ApplianceProtectIcon />,
+    },
   ];
 
   const roSteps = [
@@ -249,13 +364,15 @@ export default function AquaSafeLandingPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {visionPoints.map((item) => (
+            {benefitPoints.slice(0, 4).map((item) => (
               <div
-                key={item}
+                key={item.text}
                 className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm"
               >
-                <div className="mb-3 h-1.5 w-12 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400" />
-                <p className="text-sm leading-7 text-slate-700">{item}</p>
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-100">
+                  {item.icon}
+                </div>
+                <p className="text-sm leading-7 text-slate-700">{item.text}</p>
               </div>
             ))}
           </div>
@@ -354,24 +471,34 @@ export default function AquaSafeLandingPage() {
 
       <section className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 md:px-10 lg:px-12 lg:py-16">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr,1.1fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr,1.05fr] lg:items-start">
             <div>
               <p className="text-sm font-semibold text-sky-300">
-                ΓΙΑΤΙ ΝΑ ΕΓΚΑΤΑΣΤΗΣΕΤΕ ΦΙΛΤΡΟ ΝΕΡΟΥ
+                ΑΝΑΒΑΘΜΙΣΤΕ ΤΗΝ ΠΟΙΟΤΗΤΑ ΤΟΥ ΝΕΡΟΥ ΣΑΣ
               </p>
               <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                Περισσότερη ασφάλεια, καλύτερη γεύση, λιγότερες φθορές.
+                Μια ουσιαστική επένδυση για την καθημερινότητα, την υγεία και τον χώρο σας.
               </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
+                Η ποιότητα του νερού που χρησιμοποιείτε καθημερινά επηρεάζει
+                άμεσα την άνεση, την υγιεινή και τη συνολική εμπειρία χρήσης σε
+                κάθε σπίτι ή επαγγελματικό περιβάλλον. Με ένα σύγχρονο σύστημα
+                φιλτραρίσματος, εξασφαλίζετε καθαρότερο νερό, καλύτερη ποιότητα
+                ζωής και μεγαλύτερη προστασία για τις εγκαταστάσεις σας.
+              </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {visionPoints.map((item) => (
+              {benefitPoints.map((item) => (
                 <div
-                  key={item}
+                  key={item.text}
                   className="rounded-2xl border border-white/10 bg-white/5 p-5"
                 >
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
+                    {item.icon}
+                  </div>
                   <p className="text-sm leading-7 text-white/90 sm:text-base">
-                    {item}
+                    {item.text}
                   </p>
                 </div>
               ))}
